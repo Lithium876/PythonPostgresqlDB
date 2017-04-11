@@ -1,4 +1,8 @@
+import psycopg2
 from PyQt4 import QtCore, QtGui
+
+conn = psycopg2.connect(database="network", user="postgres", password="###########", host="127.0.0.1", port="5432")
+cur = conn.cursor()
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
