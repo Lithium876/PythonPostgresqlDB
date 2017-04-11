@@ -134,6 +134,13 @@ class Ui_MainWindow(object):
         WHERE employee_id = {1}""".format(self.lastname.toPlainText(), self.employee_id.toPlainText())
         cur.execute(sql)
         conn.commit()
+
+     def viewlog(self):
+        cur.execute('SELECT * FROM employee_audits;')
+        rows = cur.fetchall()
+        for records in rows:
+          print(records)
+        print("\n")
   
 if __name__ == "__main__":
     import sys
