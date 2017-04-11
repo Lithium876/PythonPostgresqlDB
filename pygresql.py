@@ -111,8 +111,16 @@ class Ui_MainWindow(object):
         self.viewemployeesbtn.setText(_translate("MainWindow", "View Employees Table", None))
         self.viewlogsbtn.setText(_translate("MainWindow", "View Logs", None))
         self.updatebtn.setText(_translate("MainWindow", "Update Last Name", None))
+    
+     def insert(self):
+        empid = self.employee_id.toPlainText()
+        fname = self.firstname.toPlainText()
+        lname = self.lastname.toPlainText()
+        cur.execute("INSERT INTO employees (employee_id, first_name, last_name)VALUES (%s, %s, %s)", (empid, fname, lname))
+        conn.commit()
+        print("Inserted: Employee ID: "+empid+"\nFirst Name: "+fname+"\nLast Name: "+lname)
   
- if __name__ == "__main__":
+if __name__ == "__main__":
     import sys
     app = QtGui.QApplication(sys.argv)
     MainWindow = QtGui.QMainWindow()
