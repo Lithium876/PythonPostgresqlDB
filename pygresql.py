@@ -126,6 +126,14 @@ class Ui_MainWindow(object):
         for records in rows:
             print(records)
         print("\n")
+
+    def update(self):
+        sql="""
+        UPDATE employees 
+        SET last_name = '{0}'
+        WHERE employee_id = {1}""".format(self.lastname.toPlainText(), self.employee_id.toPlainText())
+        cur.execute(sql)
+        conn.commit()
   
 if __name__ == "__main__":
     import sys
