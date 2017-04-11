@@ -119,6 +119,13 @@ class Ui_MainWindow(object):
         cur.execute("INSERT INTO employees (employee_id, first_name, last_name)VALUES (%s, %s, %s)", (empid, fname, lname))
         conn.commit()
         print("Inserted: Employee ID: "+empid+"\nFirst Name: "+fname+"\nLast Name: "+lname)
+
+    def viewEmployee(self):
+        cur.execute('SELECT * FROM employees;')
+        rows = cur.fetchall()
+        for records in rows:
+            print(records)
+        print("\n")
   
 if __name__ == "__main__":
     import sys
