@@ -1,6 +1,7 @@
-import psycopg2
+import psycopg2 #Needed to connect to database
 from PyQt4 import QtCore, QtGui
 
+#connecing to the postgresql database
 conn = psycopg2.connect(database="network", user="postgres", password="###########", host="127.0.0.1", port="5432")
 cur = conn.cursor()
 
